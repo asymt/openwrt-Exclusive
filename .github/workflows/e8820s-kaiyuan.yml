@@ -11,10 +11,16 @@
 
 name: OpenWrt-E8820S 开源固件
 
-on: 
+on:
   release:
     types: [published]
-    
+  repository_dispatch:
+    workflow_dispatch:
+      inputs:
+        ssh:
+          description: 'SSH connection to Actions'
+          required: false
+          default: 'false'
 #编辑任意指定文件触发开始编译(去掉下面5个#开启,最下面一行是指定修改什么文件就触发编译,我现在是修改diy.config文件触发)
   push:
     branches:
@@ -135,7 +141,7 @@ jobs:
         if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
         with:
           name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-          path: openwrt/bin/packages/x86_64
+          path: openwrt/bin/packages/mipsel_24kc
 
       - name: 整理编译好的固件
         id: organize
@@ -156,7 +162,7 @@ jobs:
         uses: actions/upload-artifact@main
         if: steps.organize.outputs.status == 'success' && !cancelled()
         with:
-          name: OpenWrt_5.10${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+          name: OpenWrt_${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
           path: ${{ env.FIRMWARE }}
 
       - name: 上传固件到NN网盘
@@ -194,7 +200,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         with:
-          name: ${{ env.FILE_TIME }} 「 openwrt5.10-X86-64 」
+          name: ${{ env.FILE_TIME }} 「 openwrt-zte-e8820s 」
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
           files: ${{ env.FIRMWARE }}/*
@@ -213,7 +219,7 @@ jobs:
         if: steps.organize.outputs.status == 'success' && !cancelled()
         with:
           SCKEY: ${{ secrets.SERVERCHAN }}
-          text: 恭喜主人openwrt5.10最新版固件编译成功！
+          text: 恭喜主人openwrt-env.DEVICE_NAME最新版固件编译成功！
           desp: 我亲爱的主人您要编译的固件成功完成了！
 
 
