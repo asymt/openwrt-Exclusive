@@ -30,5 +30,7 @@ sed -i 's/KERNEL_PATCHVER:=5.10/KERNEL_PATCHVER:=5.4/g' ./target/linux/x86/Makef
 # git clone https://github.com/project-lede/luci-app-godproxy.git package/luci-app-godproxy
 # git clone https://github.com/garypang13/luci-app-dnsfilter.git package/luci-app-dnsfilter
 # git clone https://github.com/ITdesk01/jd_openwrt_script.git package/jd_openwrt_script
-chmod +x diy-part1.sh
-source diy-part1.sh
+curPath=$(readlink -f "$(dirname "$0")")
+ls -al $curPath
+chmod +x $curPath/diy-part1.sh
+source $curPath/diy-part1.sh

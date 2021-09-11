@@ -31,7 +31,7 @@ sed -i 's/KERNEL_PATCHVER:=5.4/KERNEL_PATCHVER:=5.10/g' ./target/linux/x86/Makef
 # git clone https://github.com/garypang13/luci-app-dnsfilter.git package/luci-app-dnsfilter
 # git clone https://github.com/BCYDTZ/luci-app-UUGameAcc.git package/luci-app-UUGameAcc
 # git clone https://github.com/yichya/luci-app-xray.git package/luci-app-xray
-ls -al
-echo `${pwd}`
-chmod +x diy-part1.sh
-source diy-part1.sh
+curPath=$(readlink -f "$(dirname "$0")")
+ls -al $curPath
+chmod +x $curPath/diy-part1.sh
+source $curPath/diy-part1.sh
