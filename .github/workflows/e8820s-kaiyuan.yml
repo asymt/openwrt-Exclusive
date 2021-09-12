@@ -51,7 +51,7 @@ env:
   REPO_URL: https://github.com/asymt/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: config/e8820s-kaiyuan.config
+  CONFIG_FILE: config/e8820s.config
   DIY_P1_SH: scripts/diy-part1.sh
   DIY_P2_SH: scripts/zte_e8820s_diy.sh
   UPLOAD_BIN_DIR: true
@@ -206,7 +206,7 @@ jobs:
           files: ${{ env.FIRMWARE }}/*
 
       - name: 删除旧的Releases
-        uses: dev-drprasad/delete-older-releases@v0.1.0
+        uses: dev-drprasad/delete-older-releases@v0.2.0
         if: env.UPLOAD_RELEASE == 'true' && !cancelled()
         with:
           keep_latest: 9
