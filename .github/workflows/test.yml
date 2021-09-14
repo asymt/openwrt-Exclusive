@@ -21,7 +21,7 @@ jobs:
 
       - name: 创建release标签
         id: tag
-        if:  !cancelled()
+        if: !cancelled()
         run: |
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
           touch release.txt
@@ -36,7 +36,7 @@ jobs:
           name: ${{ env.FILE_TIME }} 「 openwrt-zte-e8820s 」
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: ${{ env.FIRMWARE }}/*
+          files: $PWD/*
 
       - name: 删除旧的Releases
         uses: dev-drprasad/delete-older-releases@v0.2.0
