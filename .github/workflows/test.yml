@@ -24,6 +24,7 @@ jobs:
         if: true && !cancelled()
         run: |
           export
+          cat $GITHUB_ENV
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
           touch release.txt
           echo "[固件源码](https://github.com/coolsnowwolf/lede)" >> release.txt
@@ -37,7 +38,7 @@ jobs:
           name: ${{ env.FILE_TIME }} 「 openwrt-zte-e8820s 」
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: $PWD/*
+          files: ${PWD}/*
 
       - name: 删除旧的Releases
         uses: dev-drprasad/delete-older-releases@v0.2.0
