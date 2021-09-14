@@ -23,6 +23,7 @@ jobs:
         id: tag
         if: true && !cancelled()
         run: |
+          export
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
           touch release.txt
           echo "[固件源码](https://github.com/coolsnowwolf/lede)" >> release.txt
