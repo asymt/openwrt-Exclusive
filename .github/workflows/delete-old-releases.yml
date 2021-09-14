@@ -1,0 +1,31 @@
+##
+#
+# 删除旧的Releases
+# 
+#
+
+
+name: 删除旧的Releases
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/test.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:      
+      - name: 删除旧的Releases
+        uses: dev-drprasad/delete-older-releases@v0.2.0
+        if:  true && !cancelled()
+        with:
+          keep_latest: 9
+          delete_tags: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
