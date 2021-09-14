@@ -10,6 +10,11 @@ name: action测试
 on:
   repository_dispatch:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/test.yml'
 
 jobs:
   build:
@@ -25,6 +30,7 @@ jobs:
         run: |
           echo "cat $GITHUB_ENV"
           cat $GITHUB_ENV
+          ls $GITHUB_WORKSPACE
           echo "::set-output name=release_tag::$(date +"%Y.%m.%d-%H%M")"
           touch release.txt
           echo "[固件源码](https://github.com/coolsnowwolf/lede)" >> release.txt
@@ -38,7 +44,7 @@ jobs:
           name: ${{ env.FILE_TIME }} 「 openwrt-zte-e8820s 」
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: ${{ PWD }}/*
+          files: ${{ env.GITHUB_WORKSPACE }}/*
 
       - name: 删除旧的Releases
         uses: dev-drprasad/delete-older-releases@v0.2.0
