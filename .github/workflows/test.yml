@@ -38,7 +38,7 @@ jobs:
           name: ${{ env.FILE_TIME }} 「 openwrt-zte-e8820s 」
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: ${{ $PWD }}/*
+          files: ${{ PWD }}/*
 
       - name: 删除旧的Releases
         uses: dev-drprasad/delete-older-releases@v0.2.0
