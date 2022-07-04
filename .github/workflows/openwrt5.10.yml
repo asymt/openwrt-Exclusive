@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: OpenWrt-lede5.10-x86
+name: OpenWrt-lede5.10-x86_64
 
 on:
   repository_dispatch:
@@ -20,8 +20,7 @@ on:
     branches:
       - main
     paths:
-      - 'scripts/diy-part2.sh'
-      - 'scripts/x86-diy5.10.sh'
+      - 'scripts/diy5.10.sh'
       - 'config/5.10.config'
       - '.github/workflows/openwrt5.10.yml'
   #schedule:
@@ -32,11 +31,11 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/5.10.config
-  DIY_P1_SH: scripts/x86-diy5.10.sh
-  DIY_P2_SH: diy.sh
+  DIY_P1_SH: scripts/diy5.10.sh
+  DIY_P2_SH: scripts/diy.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
+  UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai

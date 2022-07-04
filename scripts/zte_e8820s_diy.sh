@@ -15,8 +15,8 @@
 # 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能纯数字或者使用中文）
 curPath=$(readlink -f "$(dirname "$0")")
 ls -al $curPath
-chmod +x $curPath/diy-part2.sh
-source $curPath/diy-part2.sh
+chmod +x $curPath/diy.sh
+source $curPath/diy.sh
 sed -i 's/OpenWrt/E8820S/g' package/base-files/files/bin/config_generate
 
 # 修改开源驱动wifi名称

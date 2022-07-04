@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: OpenWrt-lede5.4-x86
+name: OpenWrt-lede5.4-x86_64
 
 on:
   repository_dispatch:
@@ -24,12 +24,12 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/5.4.config
-  DIY_P1_SH: scripts/x86-diy5.4.sh
-  DIY_P2_SH: diy.sh
+  DIY_P1_SH: scripts/diy5.4.sh
+  DIY_P2_SH: scripts/diy.sh
   SSH_ACTIONS: false
-  UPLOAD_BIN_DIR: false
+  UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
-  UPLOAD_COWTRANSFER: false
+  UPLOAD_COWTRANSFER: true
   UPLOAD_WETRANSFER: true
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai

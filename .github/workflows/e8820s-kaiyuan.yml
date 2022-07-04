@@ -1,7 +1,7 @@
 ##
 #
 # 感谢p3terx大神的一键编译脚本
-# 
+#
 # https://github.com/P3TERX/Actions-OpenWrt
 # Description: Build OpenWrt using GitHub Actions
 #
@@ -12,8 +12,6 @@
 name: OpenWrt-E8820S 开源固件
 
 on:
-  release:
-    types: [published]
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -22,14 +20,14 @@ on:
         required: false
         default: 'false'
 #编辑任意指定文件触发开始编译(去掉下面5个#开启,最下面一行是指定修改什么文件就触发编译,我现在是修改diy.config文件触发)
-  push:
-    branches:
-      - main
-    paths:
-      - 'scripts/diy-part1.sh'
-      - 'scripts/zte_e8820s_diy.sh'
-      - 'config/e8820s-kaiyuan.config'
-      - '.github/workflows/e8820s-kaiyuan.yml'
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - 'scripts/diy-part1.sh'
+#      - 'scripts/zte_e8820s_diy.sh'
+#      - 'config/e8820s-kaiyuan.config'
+#      - '.github/workflows/e8820s-kaiyuan.yml'
 
 
 #release发布触发开始编译(只是一个触发条件,不会发布的,又麻烦,没卵用,不用研究)
@@ -52,7 +50,7 @@ env:
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: config/e8820s.config
-  DIY_P1_SH: scripts/diy-part1.sh
+  DIY_P1_SH: scripts/diy5.4.sh
   DIY_P2_SH: scripts/zte_e8820s_diy.sh
   UPLOAD_BIN_DIR: true
   UPLOAD_FIRMWARE: true
