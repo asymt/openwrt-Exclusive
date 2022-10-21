@@ -38,5 +38,5 @@ git clone https://github.com/xiaorouji/openwrt-passwall2.git package/passwall2
 # git clone https://github.com/project-lede/luci-app-godproxy.git package/luci-app-godproxy
 # git clone https://github.com/garypang13/luci-app-dnsfilter.git package/luci-app-dnsfilter
 # git clone https://github.com/ITdesk01/jd_openwrt_script.git package/jd_openwrt_script
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon-18.06
-git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
+#git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon-18.06
+#git clone --depth=1 https://github.com/jerrykuku/luci-app-argon-config
