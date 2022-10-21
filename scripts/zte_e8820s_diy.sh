@@ -17,6 +17,7 @@ curPath=$(readlink -f "$(dirname "$0")")
 ls -al $curPath
 chmod +x $curPath/diy.sh
 source $curPath/diy.sh
+cd $curPath
 sed -i 's/OpenWrt/E8820S/g' package/base-files/files/bin/config_generate
 
 # 修改开源驱动wifi名称
