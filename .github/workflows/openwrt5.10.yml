@@ -16,13 +16,13 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-  push:
-    branches:
-      - main
-    paths:
-      - 'scripts/diy5.10.sh'
-      - 'config/5.10.config'
-      - '.github/workflows/openwrt5.10.yml'
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - 'scripts/diy5.10.sh'
+#      - 'config/5.10.config'
+#      - '.github/workflows/openwrt5.10.yml'
   #schedule:
   #  - cron: 0 18 */3 * *
 
