@@ -42,7 +42,7 @@ rm -rf feeds/packages/lang/golang
 svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/packages/lang/golang
 # Add po2lmo
 git clone https://github.com/openwrt-dev/po2lmo.git
-cd po2lmo
+pushd po2lmo
 make && sudo make install
-
+popd
 

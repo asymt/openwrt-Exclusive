@@ -17,7 +17,6 @@ curPath=$(readlink -f "$(dirname "$0")")
 ls -al $curPath
 chmod +x $curPath/diy.sh
 source $curPath/diy.sh
-cd $curPath
 pwd
 sed -i 's/OpenWrt/E8820S/g' package/base-files/files/bin/config_generate
 
