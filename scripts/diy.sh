@@ -44,3 +44,5 @@ svn export https://github.com/sbwml/packages_lang_golang/branches/19.x feeds/pac
 git clone https://github.com/openwrt-dev/po2lmo.git
 pushd po2lmo
 make && sudo make install
+popd
+
